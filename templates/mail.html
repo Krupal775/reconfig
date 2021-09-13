@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<!-- <style>
+    /* CSS Reset */
+    body {
+        font-family: 'Baloo Bhai 2', cursive;
+        color: black;
+        margin: 0px;
+        padding: 0px;
+        background: url('img/email-00.png');
+        background-size: cover;
+        background-attachment: fixed;
+
+    }
+
+    .left {
+
+        display: inline-block;
+        position: absolute;
+        left: 34px;
+        top: 20px;
+    }
+
+    .left img {
+        width: 90px;
+    }
+
+    .left div {
+        font-size: 16px;
+        line-height: 10px;
+        text-align: center;
+    }
+
+    .mid {
+        display: block;
+        width: 33%;
+        margin: 20px auto;
+        /* border: 2px solid green; */
+    }
+
+    .right {
+        position: absolute;
+        right: 34px;
+        top: 25px;
+        display: inline-block;
+        /* border: 2px solid gray; */
+    }
+
+    .navbar {
+
+        display: inline-block;
+    }
+
+    .navbar li {
+        font-size: 15px;
+
+        display: inline-block;
+    }
+
+    .navbar li a {
+        color: rgb(14, 1, 1);
+        text-decoration: none;
+        padding: 10px 12px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: underline;
+        color: gray;
+    }
+
+    .btn {
+        font-family: 'Baloo Bhai 2', cursive;
+        margin: 0px 8px;
+        background-color: rgb(17, 18, 19);
+        color: white;
+        padding: 5px 7px;
+        border: 2px solid gray;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color:grey;
+    }
+
+    .container {
+        /* border: 2px solid white; */
+        /*margin: 106px 80px; */
+        padding: 75px;
+        width: 33%;
+        border-radius: 10px;
+    }
+
+    .form-group input {
+        font-family: 'Baloo Bhai 2', cursive;
+        text-align: center;
+        display: block;
+        width: 408px;
+        padding: 45px;
+        border: 2px solid black;
+        margin: 11px auto;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+
+    .container h1 {
+        text-align: center;
+        margin-block-start: -2em;
+    }
+
+
+    .container button {
+        display: block;
+        width: 23%;
+        margin: auto;
+    }
+
+    .container input {
+        display: block;
+        font-size: 2.17em;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 158px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        color: white;
+        background: rgb(161, 157, 157);
+    }
+
+    .container textarea {
+        display: block;
+        font-size: 1.12em;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 158px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        color: white;
+        background: rgb(161, 157, 157);
+        width: 450px;
+        border: 2px solid black;
+    }
+
+    select {
+        margin-left: 157px;
+        border-radius: 5px;
+        position: relative;
+        display: block;
+        width: 25em;
+        height: 2em;
+        line-height: 3;
+        overflow: hidden;
+        border-radius: .25em;
+        padding: 4px 10px 5px;
+        outline: 0;
+        background: lightskyblue;
+        background-image: none;
+        height: 100%;
+        color: black;
+        cursor: pointer;
+        border:1px solid blue;
+            
+    }
+
+
+</style> -->
+
+<body>
+    <div class="bg">
+        <header class="header">
+            <!-- left box for logo -->
+            <div class="left">
+                <img src="img/email_logo.jpg" alt="">
+                <div> Mail Box </div>
+            </div>
+            <!-- mid box for navigation -->
+            <div class="mid">
+                <ul class="navbar">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Support Executive</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- right box for buttons -->
+            <div class="right">
+                <button class="btn">Call Us Now</button><button class="btn">Email Us</button>
+            </div>
+
+        </header>
+    
+        <form action='/predict' method="POST">
+            <div class="container">
+                <h1>Email Prediction </h1>
+                <input type="text" name = "email" class="form-control" placeholder="Description" id="inputEmail" autocomplete="off"><br>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </div>
+        </form>    
+        
+
+        <div class="container" style="padding-bottom: 0px;">
+            <h1>Output</h1>
+            <textarea rows = "2" class="form-control" id="output">Category: {{category_pred}} 
+Subcategory: {{subcategory_pred}}
+            </textarea>
+            <br>
+        </div>
+
+        <form action='/reconfigure' method="POST">
+            <div class="container">
+                <button type="submit" class="btn btn-primary">Re-configure</button>
+            </div>
+        </form>
+        
+    </div>
+
+
+
+
+</body>
+
+</html>
